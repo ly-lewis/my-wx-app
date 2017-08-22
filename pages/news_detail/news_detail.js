@@ -5,31 +5,18 @@ Page({
    * 页面的初始数据
    */
   data: {
-    key:'',
     newsDetail:{},
-    newsList:[]
-  
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    //console.log(options.uniquekey)
-    wx.request({
-      url: url,
-      header: {
-        'content-type': 'application/json'
-      },
-      success: function (res) {
-        //console.log(res.data.result.data)
-        var list_1 = res.data.result.data;
-        _this.setData({
-          newsList: list_1
-        })
-      }
+    //console.log(options.detail)
+    var detail = JSON.parse(options.detail)
+    this.setData({
+      newsDetail:detail
     })
-    console.log(newsList)
   },
 
   /**

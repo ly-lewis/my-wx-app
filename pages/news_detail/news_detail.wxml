@@ -1,2 +1,9 @@
 <!--pages/news_detail/news_detail.wxml-->
-<text>pages/news_detail/news_detail.wxml</text>
+<view class="detail_title">{{newsDetail.title}}</view>
+<view class="detail_info">
+<view class="author">{{newsDetail.author_name}}</view>
+<view class="date">{{newsDetail.date}}</view>
+</view>
+<view class="img"><image src="{{newsDetail.thumbnail_pic_s}}"></image></view>
+<view class="img"><image src="{{newsDetail.thumbnail_pic_s02}}"></image></view>
+<view class="img"><image src="{{newsDetail.thumbnail_pic_s03}}"></image></view>

@@ -32,6 +32,7 @@ Page({
         })
       }
     })
+    console.log(_this.newsList)
   },
 
   newsLists: function (event) {
@@ -58,9 +59,19 @@ Page({
       wx.hideLoading();
   },
   newsDetail: function (event){
-    wx.navigateTo({
-      url: "/pages/news_detail/news_detail?uniquekey=" + event.currentTarget.dataset.key
-    })
+    //console.log(event)
+    //点击从event中取出key值  通过key找到匹配的对象  把对象作为参数传递
+    var _this = this;
+    for (var i = 0; i < _this.data.newsList.length;i++){
+      console.log(_this.data.newsList)
+      if (_this.data.newsList[i].uniquekey == event.currentTarget.dataset.key){
+        wx.navigateTo({
+          url: "/pages/news_detail/news_detail?detail=" + JSON.stringify(_this.data.newsList[i])
+        });
+        break;
+      } 
+    }
+
   },
 
   /**

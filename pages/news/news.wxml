@@ -14,12 +14,13 @@
   <block wx:for="{{newsList}}" wx:for-index="i"  wx:key="{{i}}">
     <swiper-item class="swiperItem">
       <image src="{{item.thumbnail_pic_s}}" class="slide-image"/>
+      <view class="swiper_title">{{item.title}}</view>
     </swiper-item>
   </block>
 </swiper>
 <scroll-view scroll-y style="height:{{containHeight}}px;padding-top:10px;" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
   <block wx:for="{{newsList}}" wx:for-item="news" wx:for-index="i" wx:key="{{i}}">
-    <view class="newsScroll" data-key="{{i}}" bindtap="newsDetail">
+    <view class="newsScroll" data-key="{{news.uniquekey}}" bindtap="newsDetail">
       <view class="newsImg">
         <image src="{{news.thumbnail_pic_s}}"></image>
       </view>
