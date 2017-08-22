@@ -1,0 +1,46 @@
+<!--pages/music/music.wxml-->
+<view class="music">
+  <audio 
+  poster="{{music.songinfo.pic_small}}" 
+  name="{{music.songinfo.title}}" 
+  author="{{music.songinfo.author}}" 
+  src="{{music.bitrate.show_link}}" 
+  bindtimeupdate="changeMusicLrc"
+  id="myAudio" controls loop></audio>
+  <!-- 进度条 -->
+  <progress percent="{{musicPercent}}" show-info/>
+  <view class="musicLrc">{{musicLineLrc}}</view>
+</view>
+<!--歌曲列表  -->
+<scroll-view 
+             scroll-y 
+             style="height:{{scrollHeight}}px" 
+             bindscrolltoupper="upper" 
+             bindscrolltolower="loadMore" 
+             bindscroll="scroll" 
+             scroll-into-view="{{toView}}" 
+             scroll-top="{{scrollTop}}">
+  <!--循环列表  -->
+  <view class="songInfo" wx:for="{{songList}}" wx:for-item="song" wx:for-index="i" wx:key="{{i}}">
+    <!--图片  -->
+    <view class="songImg">
+      <image src="{{song.pic_small}}"></image>
+    </view>
+
+    <!-- 歌词 -->
+    <view class="songText">
+      <view class="song_title">{{song.title}}</view>
+      <view class="song_info">{{song.info}}</view>
+      <view class="song_author">{{song.author}}</view>
+    </view>
+    <!--播放按钮  -->
+    <view class="playIcon">
+      <image 
+             src="/icon/play.png" 
+             bindtap="playMusic" 
+             data-songId="{{song.song_id}}" 
+             class="playBtn">
+      </image>
+    </view>
+  </view>
+</scroll-view>

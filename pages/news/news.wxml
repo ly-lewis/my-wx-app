@@ -1,0 +1,35 @@
+<!--pages/news/news.wxml-->
+<view class="navBar">
+  <view bindtap="newsLists" id="1" class="navBarList headerBar" data-type="toutiao">头条</view>
+  <view bindtap="newsLists" id="2" class="navBarList gameBar" data-type="qiche"> 汽车</view>
+  <view bindtap="newsLists" id="3" class="navBarList physicalBar" data-type="yule">娱乐</view>
+  <view bindtap="newsLists" id="4" class="navBarList economicBar" data-type="tiyu">体育</view>
+</view>
+<swiper 
+     class="newsSwiper" 
+     circular='{{true}}'
+     autoplay="{{autoplay}}" 
+     interval="{{interval}}" 
+     duration="{{duration}}">
+  <block wx:for="{{newsList}}" wx:for-index="i"  wx:key="{{i}}">
+    <swiper-item class="swiperItem">
+      <image src="{{item.thumbnail_pic_s}}" class="slide-image"/>
+    </swiper-item>
+  </block>
+</swiper>
+<scroll-view scroll-y style="height:{{containHeight}}px;padding-top:10px;" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
+  <block wx:for="{{newsList}}" wx:for-item="news" wx:for-index="i" wx:key="{{i}}">
+    <view class="newsScroll" data-key="{{i}}" bindtap="newsDetail">
+      <view class="newsImg">
+        <image src="{{news.thumbnail_pic_s}}"></image>
+      </view>
+      <view class="newsText">
+        <view class="newsTitle">{{news.title}}</view>
+        <view class="newsBottom">
+          <view class="newsAuthor">{{news.author_name}}</view>
+          <view class="newsDes">{{news.date}}</view>
+        </view>
+      </view>
+    </view>
+  </block>
+</scroll-view>
