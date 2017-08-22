@@ -4,7 +4,7 @@
     "pages/my/my",
     "pages/music/music",
     "pages/news/news",
-    "pages/movie/movie",
+    "pages/map/map",
     "pages/news_detail/news_detail"
   ],
   "window": {
@@ -38,10 +38,10 @@
         "selectedIconPath": "icon/music_1.png"
       },
       {
-        "pagePath": "pages/movie/movie",
-        "text": "电影",
-        "iconPath": "icon/movie.png",
-        "selectedIconPath": "icon/movie_1.png"
+        "pagePath": "pages/map/map",
+        "text": "地图",
+        "iconPath": "icon/map.png",
+        "selectedIconPath": "icon/map_1.png"
       },
       {
         "pagePath": "pages/my/my",

@@ -28,20 +28,17 @@ Page({
   },
   //跳转到音乐界面
   toMusic: function (e) {
-    //console.log(e)
     wx.reLaunch({
       url: "/pages/music/music?id=" + e.currentTarget.dataset.songid
     })
   },
   //跳转到新闻界面
   toNews: function (e) {
-    //console.log(e)
     wx.reLaunch({
       url: "/pages/news/news"
     })
   },
   onLoad: function () {
-    //console.log(this)
     var that = this
     //调用应用实例的方法获取全局数据
     app.getUserInfo(function(userInfo){
@@ -77,21 +74,11 @@ Page({
         'content-type': 'application/json'
       },
       success: function (res) {
-        //console.log(res.data.result.data)
         var list_1 = res.data.result.data;
         that.setData({
           newsList: list_1
         })
       }
     })
-  },
-  upper: function (e) {
-    console.log(e)
-  },
-  lower: function (e) {
-    console.log(e)
-  },
-  scroll: function (e) {
-    console.log(e)
   }
 })

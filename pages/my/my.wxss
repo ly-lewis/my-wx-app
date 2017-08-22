@@ -1,1 +1,62 @@
 /* pages/my/my.wxss */
+
+page {
+  background: #e5e5e5
+}
+.header {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  height: 100px;
+  padding-left: 20px;
+  background: #fff;
+  margin-top: 5px; 
+  margin-bottom: 20px
+}
+ .img image {
+  width: 80px;
+  height: 80px;
+   border-radius: 50px
+}
+
+ .name {
+   margin-left: 10px
+}  
+
+.list {
+  width: 100%;
+  padding-left: 20px;
+  background: #fff;
+  margin-bottom: 20px
+}
+
+.list_1 {
+  width: 100%;
+  padding-left: 20px;
+  background: #fff;
+  margin-bottom: 20px
+}
+
+.list_2 {
+  width: 100%;
+  padding-left: 20px;
+  background: #fff
+}
+.list_detail {
+  width: 100%;
+  height: 50px;
+  overflow: hidden;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  border-top: 1px #e5e5e5 solid
+}
+.list_detail text {
+  margin-left: 10px
+}
+.list_img {
+  width: 30px;
+  height: 30px;
+  border-radius: 25px
+}

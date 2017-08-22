@@ -1,13 +1,42 @@
 <!--pages/my/my.wxml-->
-<!-- <text>pages/my/my.wxml</text> -->
+ <view class="header">
+   <view class="img"><image src="{{userInfo.avatarUrl}}"></image></view>
+   <view class="name">{{userInfo.nickName}}</view>
+ </view>
 
-<template name="odd">
-  <view> odd </view>
-</template>
-<template name="even">
-  <view> even </view>
-</template>
+ <view class="list_1">
+     <view class="setting list_detail">
+       <image class="list_img" src="/icon/money.png"></image>
+     <text>钱包</text>
+  </view>
+ </view>
 
-<block wx:for="{{[1, 2, 3, 4, 5]}}">
-    <template is="{{item % 2 == 0 ? 'even' : 'odd'}}"/>
-</block>
+<view class="list">
+  <view class="message list_detail">
+     <image class="list_img" src="/icon/message.png"></image>
+     <text>消息</text>
+  </view>
+  <view class="collect list_detail">
+       <image class="list_img" src="/icon/clllect.png"></image>
+     <text>收藏</text>
+  </view>
+  <view class="look list_detail">
+       <image class="list_img" src="/icon/look.png"></image>
+     <text>最近浏览</text>
+  </view>
+  <view class="attention list_detail">
+       <image class="list_img" src="/icon/attention.png"></image>
+     <text>关注</text>
+  </view>
+  <view class="setting list_detail">
+       <image class="list_img" src="/icon/smile.png"></image>
+     <text>表情</text>
+  </view>
+</view>
+
+<view class="list_2">
+  <view class="message list_detail">
+     <image class="list_img" src="/icon/setting.png"></image>
+     <text>设置</text>
+  </view>
+</view>

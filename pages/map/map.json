@@ -1,7 +1,7 @@
 {
-  "navigationBarBackgroundColor": "#fff",
+  "navigationBarBackgroundColor": "#1296db",
   "navigationBarTextStyle": "black",
-  "navigationBarTitleText": "电影",
+  "navigationBarTitleText": "地图",
   "backgroundColor": "#eeeeee",
   "backgroundTextStyle": "light"
 }

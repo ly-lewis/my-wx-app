@@ -48,14 +48,9 @@ Page({
    */
   onLoad: function (options) {
     var _this = this;
-    var flag = true;
-    _this.playIdMusic(options.id)
     _this.setData({
       id_1: options.id,
     });
-    // console.log(options);
-
-
   
   //获取audio对象
   _this.audioCtx = wx.createAudioContext('myAudio');
@@ -71,7 +66,7 @@ Page({
 
   //请求数据
   wx.request({
-    url: 'http://tingapi.ting.baidu.com/v1/restserver/ting?method=baidu.ting.billboard.billList', //仅为示例，并非真实的接口地址
+    url: 'http://tingapi.ting.baidu.com/v1/restserver/ting?method=baidu.ting.billboard.billList',
     data: {
       type: _this.data.type,
       size: _this.data.size,
@@ -81,12 +76,11 @@ Page({
       'content-type': 'application/json'
     },
     success: function (res) {
-      //console.log(res.data)
       var idList = [];
       for(var i =0;i<res.data.song_list.length;i ++){
         idList.push(res.data.song_list[i].song_id)
       }
-      //console.log(idList)
+      //设置歌曲列表
       _this.setData({
         songIdList:idList,
         songList: res.data.song_list
@@ -95,15 +89,18 @@ Page({
        wx.hideLoading();
        //页面累加
        _this.data.page ++ ;
-
-       //自动播放
-       //console.log(_this.flag)
-       if(_this.flag==false){
-         _this.playIdMusic(_this.data.songIdList[0])
+       //从主页直接播放 和 自动播放需要判断
+       if (_this.data.id_1 == undefined) {
+         _this.playIdMusic(_this.data.songList[4].song_id);
+       } else {
+         //自动播放
+         _this.playIdMusic(_this.data.id_1);
        }
-       //_this.playIdMusic(_this.data.songIdList[0])
     }
   })
+  },
+  onReady:function(){
+
   },
   //加载更多
   loadMore:function(){
@@ -159,15 +156,14 @@ Page({
   playIdMusic: function (songId){
     var _this = this;
     var url = 'http://tingapi.ting.baidu.com/v1/restserver/ting?method=baidu.ting.song.play&songid=' + songId;
-    // console.log(url)
     //根据url获取歌词
     wx.request({
       url: url,
       success: function (res) {
         _this.setData({
           music: res.data,
-          //musicLrc: parseLyric(res.data.songinfo.lrclink)
         });
+       //console.log(url)
         //请求歌词
         wx.request({
           url: res.data.songinfo.lrclink,
@@ -189,25 +185,22 @@ Page({
   playMusic:function(event){
     var _this = this;
     var url = 'http://tingapi.ting.baidu.com/v1/restserver/ting?method=baidu.ting.song.play&songid='+event.target.dataset.songid;
-    //  console.log(url)
     //根据url获取歌词
     wx.request({
       url: url, 
       success: function (res) {
         _this.setData({
           music:res.data,
-          //musicLrc: parseLyric(res.data.songinfo.lrclink)
         });
         //请求歌词
         wx.request({
           url: res.data.songinfo.lrclink,
           success: function (res) {
-            if(url){
-              _this.setData({
-                musicLrc: parseLyric(res.data)
-              })
-            }
-            // parseLyric进行了歌词的解析
+           if(url){
+             _this.setData({
+               musicLrc: parseLyric(res.data)
+             })
+           }
             _this.audioCtx.play();
 
           }

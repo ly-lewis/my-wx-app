@@ -8,7 +8,7 @@
   bindtimeupdate="changeMusicLrc"
   id="myAudio" controls loop></audio>
   <!-- 进度条 -->
-  <progress percent="{{musicPercent}}" show-info/>
+  <progress percent="{{musicPercent}}"/>
   <view class="musicLrc">{{musicLineLrc}}</view>
 </view>
 <!--歌曲列表  -->
