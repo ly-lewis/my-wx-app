@@ -32,11 +32,9 @@ Page({
         })
       }
     })
-    console.log(_this.newsList)
   },
 
   newsLists: function (event) {
-    //console.log(event)
     var _this = this;
     var url = 'http://v.juhe.cn/toutiao/index?key=e3172893178deeeaacbd2ab69c5400d7&type=' + event.currentTarget.dataset.type;
     //请求数据
@@ -49,7 +47,6 @@ Page({
         'content-type': 'application/json'
       },
       success: function (res) {
-        //console.log(res.data.result.data)
         var list_1 = res.data.result.data;
         _this.setData({
           newsList: list_1
@@ -59,7 +56,6 @@ Page({
       wx.hideLoading();
   },
   newsDetail: function (event){
-    //console.log(event)
     //点击从event中取出key值  通过key找到匹配的对象  把对象作为参数传递
     var _this = this;
     for (var i = 0; i < _this.data.newsList.length;i++){

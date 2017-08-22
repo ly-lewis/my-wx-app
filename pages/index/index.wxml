@@ -23,7 +23,7 @@
 <view class="section__title">新闻资讯</view>
     <scroll-view 
             scroll-y 
-            style="height: 275px;" 
+            style="height: 215px;" 
             bindscrolltoupper="upper" 
             bindscrolltolower="lower" 
             bindscroll="scroll" 
