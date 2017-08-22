@@ -1,14 +1,11 @@
-<!--pages/movie/movie.wxml-->
-<map id="map" 
-     longitude="113.324520" 
-     latitude="23.099994" 
-     scale="14" 
-     controls="{{controls}}" 
-     bindcontroltap="controltap" 
-     markers="{{markers}}" 
-     bindmarkertap="markertap" 
-     polyline="{{polyline}}" 
-     bindregionchange="regionchange" 
-     show-location 
-     style="width: 100%; height:625px;">
-     </map>
+<!-- <button 
+class="button" 
+bindtap="getlocation" 
+style="margin-top:30px" 
+markers="{{markers}}">定位</button>   -->
+
+<map 
+longitude="{{longitude}}" 
+latitude="{{latitude}}" 
+markers="{{markers}}" 
+style="width: 100%; height:650px"></map>  
